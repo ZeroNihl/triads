@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A complete guide to implementing Sparse Quantized Hopfield Networks (SQHN) for online-continual learning and memory tasks, highlighting architecture, associative recall, and performance benchmarks.">
+    <meta name="keywords" content="Sparse Quantized Hopfield Networks, SQHN, online-continual learning, associative memory, neural networks, Hopfield networks, AI memory, online learning, noisy encoding, catastrophic forgetting, AI implementation, artificial intelligence">
+    <meta name="author" content="Nihl">
+    <title>Implementing Sparse Quantized Hopfield Networks (SQHN) for Online-Continual Memory</title>
+    <style>
+        body {
+            font-family: 'Lucida Console', monospace;
+            font-size: 18px;
+            color: #111;
+            background-color: white;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 50px;
+            box-sizing: border-box;
+        }
+        .landing {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height:100vh; min-height:100dvh;
+            text-align: center;
+            }
+        hr {
+            border: none;
+            height: 2px;
+            background-color: lightgrey;
+            width: 100%;
+            margin: 30px auto;
+        }
+        ul {
+            margin: 10px 0 20px 20px;
+        }
+        ul li {
+            margin: 5px 0;
+        }
+        table {
+            border-collapse: collapse;
+            text-align: center;
+            width: 100%;
+        }
+        td {
+            padding: 5px 20px;
+            border: 1px solid #dddddd;
+        }
+        a {
+            color: #0056b3;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .links-container {
+            font-size: 24px;
+            margin: 20px;
+        }
+        .links-container a {
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        .product-photo {
+            display: block;
+            max-width: 640px;
+            width: 100%;
+            margin: 0 auto;
+        }
+        .faqtable dt {
+            margin-bottom: 0.75em;
+            font-style: italic;
+        }
+        .faqtable dd {
+            margin-left: 0;
+            margin-bottom: 2em;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="landing">
+        <h1>Implementing Sparse Quantized Hopfield Networks (SQHN) for Online-Continual Memory</h1>
+    </div>
+
+    <h1>SQHN Architecture Summarized</h1>
+
+    <hr>
+
+    <h2>Introduction to Sparse Quantized Hopfield Networks (SQHN)</h2>
+    <p>The <strong>Sparse Quantized Hopfield Network (SQHN)</strong> provides a novel solution to the challenges posed by <strong>online-continual learning</strong>. Traditional neural networks struggle in non-i.i.d. (non-independent and identically distributed) learning environments, but SQHN mimics the brain’s ability to handle noisy, continuous data streams. This article dives deep into how to implement SQHN for real-world <a href="#online-learning">online learning</a> and <a href="#memory-tasks">memory tasks</a>.</p>
+
+    <hr>
+
+    <h2 id="online-learning">Key Differences Between Traditional Neural Networks and SQHNs</h2>
+    <p><strong>SQHN</strong> outshines traditional neural networks, especially when handling noisy, online data. Traditional networks rely on <a href="https://en.wikipedia.org/wiki/Backpropagation" target="_blank" rel="nofollow">backpropagation</a>, which is computationally intensive and biologically implausible. SQHN, on the other hand, uses <strong>local learning rules</strong> to update synapses based only on nearby activity, enabling efficient learning from single data points.</p>
+
+    <hr>
+
+    <h2>Architectural Overview of SQHN</h2>
+    <p>The architecture of <strong>Sparse Quantized Hopfield Networks</strong> is an energy-based model where the aim is to minimize energy by finding the most probable latent codes. The network is organized in layers, with visible nodes representing inputs and hidden nodes encoding higher-level abstractions. <strong>Quantized neural codes</strong> are essential to the design, ensuring efficient recall in associative memory tasks.</p>
+
+    <hr>
+
+    <h2>Quantization and Associative Recall</h2>
+    <p>In associative memory tasks, quantization enables <strong>SQHN</strong> to map continuous data to discrete codes, improving memory recall even in noisy environments. This process allows the network to match corrupted or incomplete data to its original form, making it highly reliable for pattern completion and memory recall.</p>
+
+    <hr>
+
+    <h2>Handling Catastrophic Forgetting with Parameter Isolation</h2>
+    <p>One of the biggest strengths of <strong>SQHN</strong> is its ability to mitigate catastrophic forgetting through <strong>parameter isolation</strong>. Instead of updating all weights with new data, the network isolates subsets of parameters for each task, reducing the risk of overwriting old memories when learning new information. This makes <strong>online-continual learning</strong> more efficient and accurate.</p>
+
+    <hr>
+
+    <h2>Implementing the SQHN Model</h2>
+    <p>To implement <strong>SQHN</strong>, the network must be structured with visible and hidden layers. The visible nodes handle the input data, while the hidden nodes encode sparse, quantized representations of this data. The model employs an <strong>energy function</strong> to minimize errors during training, with <strong>feed-forward</strong> and <strong>feedback sweeps</strong> enabling efficient recall even in the presence of noisy inputs.</p>
+
+    <hr>
+
+    <h2>Initialization and Growth of Neurons</h2>
+    <p><strong>SQHN</strong> starts with neurons initialized to zero and grows new neurons dynamically as needed. This ensures the network remains sparse, only expanding its architecture when existing neurons cannot accommodate new data. This neuron growth is governed by a decaying threshold that ensures efficient use of memory resources.</p>
+
+    <hr>
+
+    <h2>The Role of Local Learning Rules</h2>
+    <p>One of the unique aspects of <strong>SQHN</strong> is its use of <strong>local learning rules</strong>. Unlike backpropagation, which requires global network updates, local rules only update synapses based on nearby neuron activity. This <a href="https://en.wikipedia.org/wiki/Hebbian_theory" target="_blank" rel="nofollow">Hebbian-like learning</a> is more biologically plausible and computationally efficient, especially in real-time systems where rapid adaptation is required.</p>
+
+    <hr>
+
+    <h2>Training the SQHN for Online-Continual Learning</h2>
+    <p>Training <strong>SQHN</strong> for <strong>online-continual learning</strong> involves streaming data one point at a time, ensuring that the network updates immediately and efficiently. Key aspects include configuring the data pipeline, tuning hyperparameters such as learning rate, and handling non-i.i.d. data without revisiting previously seen data.</p>
+
+    <hr>
+
+    <h2 id="memory-tasks">Episodic Memory Task Implementation</h2>
+    <p><strong>SQHN</strong> can effectively handle episodic memory tasks, where the network must determine if a data point has been previously encountered. By matching new inputs to stored <strong>latent codes</strong>, the network classifies data as either old or new, making it highly applicable to <strong>memory-based tasks</strong> such as <a href="https://en.wikipedia.org/wiki/Anomaly_detection" target="_blank" rel="nofollow">anomaly detection</a> or user authentication.</p>
+
+    <hr>
+
+    <h2>Auto-Associative Memory Tasks</h2>
+    <p>In <strong>auto-associative memory tasks</strong>, the goal is to recall full data patterns from incomplete or corrupted inputs. <strong>SQHN</strong> excels in these tasks by utilizing sparse, quantized codes to reconstruct original data even when presented with noisy or partial inputs, making it ideal for image reconstruction and error correction.</p>
+
+    <hr>
+
+    <h2>Noisy Encoding with SQHN</h2>
+    <p><strong>SQHN</strong> is designed to handle noisy data inputs during both training and recall. By learning stable <strong>latent codes</strong> from noisy data, the network is able to reconstruct clean data, even under extreme noise conditions. This is particularly useful for applications such as autonomous systems or medical imaging where data may be highly variable.</p>
+
+    <hr>
+
+    <h2>Performance Benchmarks and Evaluation</h2>
+    <p>Evaluating <strong>SQHN</strong> involves metrics like recall accuracy, memory efficiency, and cumulative recall MSE. In tests on datasets like <a href="https://www.cs.toronto.edu/~kriz/cifar.html" target="_blank" rel="nofollow">CIFAR-10</a> and <a href="https://www.image-net.org/" target="_blank" rel="nofollow">Tiny ImageNet</a>, SQHN outperformed baseline models such as MHNs and PCNs, particularly in <strong>online-continual learning</strong> tasks with noisy inputs.</p>
+
+    <hr>
+
+    <h2>Practical Considerations for Deploying SQHN</h2>
+    <p>When deploying <strong>SQHN</strong>, it’s important to consider <strong>hardware compatibility</strong> (such as GPU or neuromorphic chips), scalability, and computational efficiency. SQHN’s reliance on sparse coding ensures that it can be deployed in resource-constrained environments, such as embedded AI systems, without sacrificing performance.</p>
+
+    <hr>
+
+    <h2>Performance Benchmarks and Evaluation</h2>
+    <p><strong>SQHN</strong> outperforms traditional networks in tasks requiring memory retention and recall. Benchmarks on datasets like <a href="https://www.cs.toronto.edu/~kriz/cifar.html" target="_blank" rel="nofollow">CIFAR-10</a> and <a href="https://www.image-net.org/" target="_blank" rel="nofollow">Tiny ImageNet</a> show superior performance, particularly in handling noisy inputs and online learning environments.</p>
+
+    <hr>
+
+    <h1>Cognicum SQHN: Extended SQHN</h1>
+
+    <hr>
+
+    <h2>Switching Between Lossless and Lossy Modes to Control Neuron Growth</h2>
+    <p>In <strong>lossless mode</strong>, the network retains all input data, ensuring that all memory is preserved for future recall. However, this can lead to uncontrolled growth. To manage this, the <strong>lossy mode</strong> introduces neuron pruning based on the age and contribution of each neuron. Old, rarely used neurons are discarded to maintain a manageable network size, while still preserving critical memories.</p>
+
+    <hr>
+
+    <h2>Understanding and Extracting Holon IDs in SQHN</h2>
+    <p><strong>Holon IDs</strong> act as compact representations of information stored in the network. These IDs allow the model to decide whether to integrate new inputs based on their similarity to existing data. When an input’s holon ID is close enough to a single/collection of the memory’s holon ID/IDs, it is integrated into the corresponding neuron without growing new ones, ensuring efficient use of resources.</p>
+    <p> A basic approach to generating these holon IDs is to integrate associative symmetry quantization to weights between nodes this generates a collection of high symmetry paths (a single interpretation of holon IDs) and as the design is hierarchical this can be converted into a symbolic path. When an input is received it first gets processed in symmetry detection mode and by overimposing the neuron and weight quantization we can see if there is a strong symmetry with strong paths detected.</p>
+
+    <hr>
+
+    <h2>New Modes for Controlling SQHN Growth and Input Integration</h2>
+    <p><strong>Lossless-Novel Mode:</strong> The state the version of the architecture in the original paper operated in. <br> <br> <strong>Lossless-Holon Mode:</strong> Integrates new inputs only if they are sufficiently symmetrical with existing memories. <br> <strong>Lossy-Novel Mode:</strong> Accepts all inputs but prunes neurons as necessary to limit growth. <br> <strong>Lossy-Holon Mode:</strong> Combines pruning with holon ID filtering for maximum efficiency.</p>
+
+</body>
+</html>
