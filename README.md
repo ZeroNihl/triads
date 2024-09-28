@@ -1,1 +1,1 @@
-# Cognicum-SQHN
+# Triads
