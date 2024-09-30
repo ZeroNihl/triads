@@ -1,0 +1,101 @@
+# Basic site settings
+site_name: Cognicum  # Replace with your project's name
+site_url: https://docs.myproject.org/  # Your documentation URL
+repo_url: https://github.com/myproject/myproject  # Your project repo
+
+# Navigation for your docs
+nav:
+- Home:
+  - index.md
+  - Quickstart: quickstart.md
+  - Cognicum:
+    - cognicum/index.md
+    - Properties: cognicum/properties.md
+    - Methods: cognicum/methods.md
+  - Developer Guide:
+    - Getting Started: developer/getting_started.md
+    - Advanced Topics: developer/advanced.md
+
+# Markdown extensions
+markdown_extensions:
+- attr_list
+- admonition
+- callouts
+- footnotes
+- pymdownx.details
+- pymdownx.emoji:
+    emoji_index: !!python/name:material.extensions.emoji.twemoji
+    emoji_generator: !!python/name:material.extensions.emoji.to_svg
+- pymdownx.highlight:
+    pygments_lang_class: true
+- pymdownx.inlinehilite:
+    style_plain_text: python
+- pymdownx.magiclink
+- pymdownx.snippets:
+    base_path: [!relative $config_dir]
+    check_paths: true
+- pymdownx.superfences
+- pymdownx.tabbed:
+    alternate_style: true
+- pymdownx.tasklist:
+    custom_checkbox: true
+- pymdownx.tilde
+- toc:
+    permalink: "¤"
+
+# Theme and appearance
+theme:
+  name: material
+  logo: logo_dark.svg  # Replace with your logo
+  favicon: favicon.svg
+  features:
+  - navigation.sections
+  - navigation.expand
+  - search.highlight
+  - search.suggest
+  - toc.integrate
+  palette:
+    - media: "(prefers-color-scheme)"
+      scheme: slate
+      primary: black
+      accent: lime
+      toggle:
+        icon: material/brightness-auto
+        name: Switch to light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: black
+      accent: lime
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: black
+      accent: lime
+      toggle:
+        icon: material/brightness-4
+        name: Switch to system preference
+
+# Plugins
+plugins:
+- search
+- mkdocstrings:
+    handlers:
+      python:
+        import:
+        - https://docs.python.org/3/objects.inv
+        paths: [cognicum]  # Replace with your package/module name
+        options:
+          docstring_options:
+            ignore_init_summary: true
+          filters: ["!^_"]
+          inherited_members: false
+          merge_init_into_class: true
+          show_signature_annotations: true
+- markdown-exec
+
+# Validation settings for link checks
+validation:
+  links:
+    anchors: warn
