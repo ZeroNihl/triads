@@ -9,7 +9,7 @@ with open(directory / 'README.md', encoding='utf-8') as f:
     long_description = f.read()
 
 setup(
-    name='my_project',  # Replace with your project name
+    name='cognicum',  # Replace with your project name
     version='0.1.0',  # Your project's version
     description='A project that uses tinygrad and automated docs',
     author='Your Name',
@@ -18,8 +18,8 @@ setup(
     long_description_content_type='text/markdown',
 
     # Replace with your project’s Python packages
-    packages=[], # Add your own packages
-    
+    packages=['cognicum'], # Add your own packages
+
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License"
